@@ -1,47 +1,41 @@
 package weatherAPI;
 
+import com.sun.source.tree.WhileLoopTree;
+
 import java.util.*;
 
 public class QuestionList {
     public static void main(String[] args) {
 
     String question = "What is the most popular programming language?";
-    Map<Enum, String> options = new LinkedHashMap<>();
-        options.put(Choice.A, "Java");
-        options.put(Choice.B, "Python");
-        options.put(Choice.C, "C++");
-        options.put(Choice.D, "JavaScript");
-        Map<Enum, String> answers = new LinkedHashMap<>();
-        options.put(Choice.A, "Java");
+    Map<String, String> options = new LinkedHashMap<>();
+        options.put("A", "Java");
+        options.put("B", "Python");
+        options.put("C", "C++");
+        options.put("D", "JavaScript");
 
+        Map<String, String> answers = new HashMap<>();
+        answers.put("A", "Java");
 
-    System.out.println(question);
+        System.out.println(question);
 
-    for (Map.Entry<Enum, String> entry: options.entrySet()){
-            System.out.println(entry.getKey()+". "+ entry.getValue());
-        }
+        for (Map.Entry<String, String> entry: options.entrySet()){
+                System.out.println(entry.getKey()+". "+ entry.getValue());
+            }
     Scanner scanner = new Scanner(System.in);
     System.out.print("Enter your answer A, B, C or D");
     System.out.println();
     String userInput = scanner.nextLine().toUpperCase();
 
-    while (userInput.equals(true)){
+     while (!answers.containsKey(userInput)){
 
+         System.out.println("Try again");
+         userInput = scanner.nextLine().toUpperCase();
 
-    }
+     }
 
+        System.out.println("Good Job!");
 
-
-//      String[] userAnswers = userInput.split(",");
-//      List<String> userAnswerList = new ArrayList<>();
-//        for (String each : userAnswers) {
-//        userAnswerList.add(each.trim());
-//    }
-//        if (userAnswerList.containsAll(List.of(answers))) {
-//        System.out.println("Correct!");
-//    } else {
-//        System.out.println("Incorrect.");
-//    }
   }
 }
 
